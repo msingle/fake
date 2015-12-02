@@ -102,19 +102,19 @@ func fullNameWithSuffix(gender string) string {
 // MaleFullNameWithSuffix generates suffixed male full name
 // if suffixes for the given language are available
 func MaleFullNameWithSuffix() string {
-	return fullNameWithPrefix("male")
+	return fullNameWithSuffix("male")
 }
 
 // FemaleFullNameWithSuffix generates suffixed female full name
 // if suffixes for the given language are available
 func FemaleFullNameWithSuffix() string {
-	return fullNameWithPrefix("female")
+	return fullNameWithSuffix("female")
 }
 
 // FullNameWithSuffix generates suffixed full name
 // if suffixes for the given language are available
 func FullNameWithSuffix() string {
-	return fullNameWithPrefix(randGender())
+	return fullNameWithSuffix(randGender())
 }
 
 func fullName(gender string) string {
