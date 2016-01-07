@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/icrowley/fake"
+	"github.com/mbict/fake"
 
 	"testing"
 )

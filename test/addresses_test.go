@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/icrowley/fake"
+	"github.com/mbict/fake"
 )
 
 func TestAddresses(t *testing.T) {
