@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/icrowley/fake"
+	"github.com/syscrusher/fake"
 )
 
 func TestGeneral(t *testing.T) {
