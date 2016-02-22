@@ -74,5 +74,21 @@ func TestLoremIpsum(t *testing.T) {
 		if v == "" {
 			t.Errorf("Paragraphs failed with lang %s", lang)
 		}
+
+		vs := fake.WordsNUnique(251)
+		if len(vs) != 251 {
+			t.Errorf("WordsNUnique failed with lang %s", lang)
+		}
+		lw := ""
+		for n, w := range vs {
+			if w == lw {
+				t.Errorf("Duplicate words found")
+			}
+			if w == "" {
+				t.Errorf("Word %d is empty", n)
+				continue
+			}
+			lw = w
+		}
 	}
 }
