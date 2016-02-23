@@ -36,6 +36,7 @@ Using external data:
 package fake
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
@@ -60,10 +61,10 @@ var enFallback = true
 var availLangs = GetLangs()
 
 var (
-	// ErrNoLanguageFn is the error that indicates that given language is not available
-	ErrNoLanguageFn = func(lang string) error { return fmt.Errorf("The language passed (%s) is not available", lang) }
-	// ErrNoSamplesFn is the error that indicates that there are no samples for the given language
-	ErrNoSamplesFn = func(lang string) error { return fmt.Errorf("No samples found for language: %s", lang) }
+	// ErrNoLanguage indicates that the given language is not available
+	ErrNoLanguage = errors.New("Language unavailable")
+	// ErrNoSamples indicates that there are no samples for the given language
+	ErrNoSamples = errors.New("No samples found for given language")
 )
 
 type rndSrc struct {
@@ -106,7 +107,7 @@ func SetLang(newLang string) error {
 		}
 	}
 	if !found {
-		return ErrNoLanguageFn(newLang)
+		return ErrNoLanguage
 	}
 	lang = newLang
 	return nil
@@ -170,7 +171,7 @@ func _lookup(lang, cat string, fallback bool) string {
 		var err error
 		samples, err = populateSamples(lang, cat)
 		if err != nil {
-			if lang != "en" && fallback && enFallback && err.Error() == ErrNoSamplesFn(lang).Error() {
+			if lang != "en" && fallback && enFallback && err.Error() == ErrNoSamples.Error() {
 				return _lookup("en", cat, false)
 			}
 			return ""
@@ -200,7 +201,7 @@ func readFile(lang, cat string) (f []byte, err error) {
 	fullpath := fmt.Sprintf("/data/%s/%s", lang, cat)
 	file, err := FS(useExternalData).Open(fullpath)
 	if err != nil {
-		return nil, ErrNoSamplesFn(lang)
+		return nil, ErrNoSamples
 	}
 	defer func() {
 		// overwrites named return value
