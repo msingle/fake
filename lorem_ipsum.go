@@ -77,7 +77,7 @@ func Sentence() string {
 		if r.Intn(5) == 0 {
 			word += ","
 		}
-		words = append(words, Word())
+		words = append(words, word)
 	}
 
 	sentence := strings.Join(words, " ")
