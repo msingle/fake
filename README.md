@@ -1,4 +1,7 @@
-[![Build Status](https://img.shields.io/travis/syscrusher/fake.svg?style=flat)](https://travis-ci.org/syscrusher/fake) [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/syscrusher/fake) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/syscrusher/fake/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/syscrusher/fake.svg?style=flat)](https://travis-ci.org/syscrusher/fake)
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/syscrusher/fake)
+[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/syscrusher/fake/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/syscrusher/fake)](https://goreportcard.com/report/github.com/syscrusher/fake)
 
 Fake
 ====
