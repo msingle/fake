@@ -196,13 +196,16 @@ func populateSamples(lang, cat string) ([]string, error) {
 	return samples, nil
 }
 
-func readFile(lang, cat string) ([]byte, error) {
+func readFile(lang, cat string) (f []byte, err error) {
 	fullpath := fmt.Sprintf("/data/%s/%s", lang, cat)
 	file, err := FS(useExternalData).Open(fullpath)
 	if err != nil {
 		return nil, ErrNoSamplesFn(lang)
 	}
-	defer file.Close()
+	defer func() {
+		// overwrites named return value
+		err = file.Close()
+	}()
 
 	return ioutil.ReadAll(file)
 }
