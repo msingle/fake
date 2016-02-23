@@ -8,7 +8,10 @@ import (
 
 func TestJobs(t *testing.T) {
 	for _, lang := range fake.GetLangs() {
-		fake.SetLang(lang)
+		err := fake.SetLang(lang)
+		if err != nil {
+			t.Errorf("Could not set language %s", lang)
+		}
 
 		v := fake.Company()
 		if v == "" {

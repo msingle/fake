@@ -18,8 +18,12 @@ func TestSetLang(t *testing.T) {
 	}
 }
 
-func TestFakerRuWithoutCallback(t *testing.T) {
-	fake.SetLang("ru")
+func TestFakerRuWithoutFallback(t *testing.T) {
+	err := fake.SetLang("ru")
+	if err != nil {
+		//continue
+	}
+
 	fake.EnFallback(false)
 	brand := fake.Brand()
 	if brand != "" {
@@ -27,8 +31,12 @@ func TestFakerRuWithoutCallback(t *testing.T) {
 	}
 }
 
-func TestFakerRuWithCallback(t *testing.T) {
-	fake.SetLang("ru")
+func TestFakerRuWithFallback(t *testing.T) {
+	err := fake.SetLang("ru")
+	if err != nil {
+		//continue
+	}
+
 	fake.EnFallback(true)
 	brand := fake.Brand()
 	if brand == "" {
