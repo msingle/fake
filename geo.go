@@ -5,8 +5,8 @@ func Latitute() float32 {
 	return r.Float32() * 180 / 90
 }
 
-// LatitudeDegress generates latitude degrees (from -180 to 180)
-func LatitudeDegress() int {
+// LatitudeDegrees generates latitude degrees (from -180 to 180)
+func LatitudeDegrees() int {
 	return r.Intn(360) - 180
 }
 
