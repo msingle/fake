@@ -1,5 +1,20 @@
 package fake
 
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+// Time generates a time.Time between 'from' and 'to'.
+func Time(from, to time.Time) time.Time {
+	diff := to.Sub(from)
+
+	ns := rand.Int63n(diff.Nanoseconds())
+	d, _ := time.ParseDuration(fmt.Sprintf("%dms", ns))
+	return from.Add(d)
+}
+
 // Day generates day of the month
 func Day() int {
 	return r.Intn(31) + 1

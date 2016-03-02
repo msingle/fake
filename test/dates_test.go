@@ -2,6 +2,7 @@ package test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/syscrusher/fake"
 )
@@ -11,6 +12,16 @@ func TestDates(t *testing.T) {
 		err := fake.SetLang(lang)
 		if err != nil {
 			t.Errorf("Could not set language %s", lang)
+		}
+
+		from, _ := time.Parse("2006-01-02T15:04:05", "2016-01-01T00:00:00")
+		to, _ := time.Parse("2006-01-02T15:04:05", "2016-01-31T23:59:59")
+		d := fake.Time(from, to)
+		if !from.Equal(d) && !from.Before(d) {
+			t.Errorf("Time before from date %s", lang)
+		}
+		if !to.Equal(d) && !to.After(d) {
+			t.Errorf("Time after %s to date %s", d, lang)
 		}
 
 		v := fake.WeekDay()
