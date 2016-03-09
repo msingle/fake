@@ -1,5 +1,10 @@
 package fake
 
+import (
+	"math/rand"
+	"time"
+)
+
 // Day generates day of the month
 func Day() int {
 	return r.Intn(31) + 1
@@ -39,4 +44,13 @@ func MonthNum() int {
 func Year(from, to int) int {
 	n := r.Intn(to-from) + 1
 	return from + n
+}
+
+// Birthday
+func Birthdate(age int) time.Time {
+	now := time.Now()
+	startWindow := now.AddDate(-1*(age+1), 0, 0)
+	endWindow := startWindow.AddDate(1, 0, 0)
+	randomUnix := startWindow.Unix() + rand.Int63n(endWindow.Unix()-startWindow.Unix())
+	return time.Unix(randomUnix, 0)
 }
