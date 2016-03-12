@@ -10,7 +10,7 @@ import (
 func Time(from, to time.Time) time.Time {
 	diff := to.Sub(from)
 
-	ns := rand.Int63n(diff.Nanoseconds())
+	ns := r.Int63n(diff.Nanoseconds())
 	d, _ := time.ParseDuration(fmt.Sprintf("%dms", ns))
 	return from.Add(d)
 }
@@ -54,4 +54,13 @@ func MonthNum() int {
 func Year(from, to int) int {
 	n := r.Intn(to-from) + 1
 	return from + n
+}
+
+// Birthdate returns a date of birth for someone of the given age
+func Birthdate(age int) time.Time {
+	now := time.Now()
+	startWindow := now.AddDate(-1*(age+1), 0, 0)
+	endWindow := startWindow.AddDate(1, 0, 0)
+	randomUnix := startWindow.Unix() + rand.Int63n(endWindow.Unix()-startWindow.Unix())
+	return time.Unix(randomUnix, 0)
 }
