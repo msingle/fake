@@ -62,7 +62,7 @@ func TestDates(t *testing.T) {
 }
 
 func TestBirthdate(t *testing.T) {
-	for age := 0; age <= 120; age += 1 {
+	for age := 0; age <= 120; age++ {
 		now := time.Now()
 		birthdate := fake.Birthdate(age)
 		diffDate := now.Sub(birthdate)
