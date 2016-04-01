@@ -1,9 +1,9 @@
 Fake
 ====
-[![Build Status](https://img.shields.io/travis/syscrusher/fake.svg?style=flat)](https://travis-ci.org/syscrusher/fake)
-[![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/syscrusher/fake)
-[![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/syscrusher/fake/master/LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/syscrusher/fake)](https://goreportcard.com/report/github.com/syscrusher/fake)
+[![Build Status](https://img.shields.io/travis/msingle/fake.svg?style=flat)](https://travis-ci.org/msingle/fake)
+[![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/msingle/fake)
+[![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/msingle/fake/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/msingle/fake)](https://goreportcard.com/report/github.com/msingle/fake)
 
 Fake is a fake data generator for Go (Golang), heavily inspired by the forgery and ffaker Ruby gems.
 This particular branch is a fork from [icrowley](https://github.com/icrowley/fake) with improvements merged from the community.
@@ -12,7 +12,7 @@ This particular branch is a fork from [icrowley](https://github.com/icrowley/fak
 ## About
 
 Most data and methods are ported from forgery/ffaker Ruby gems.
-For the list of available methods, please look at [GoDoc](https://godoc.org/github.com/syscrusher/fake).
+For the list of available methods, please look at [GoDoc](https://godoc.org/github.com/msingle/fake).
 
 Currently, English and Russian are available. English is the default.
 If the selected language does not implement the required data, then English will be returned as a fallback.
